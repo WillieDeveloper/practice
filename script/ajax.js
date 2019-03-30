@@ -13,18 +13,18 @@ function sendAjaxForm() {
         // Имя обработчика
         url: 'addUser',
         //Метод отправки
-        type: "POST",
+        type: 'POST',
         //Формат данных
-        dataType: "html",
-        data: $("#form_ajax").serialize(),
+        dataType: 'html',
+        data: $('#form_ajax').serialize(),
         //Есть ответ от обработчика
         success: function(response) {
         	result = $.parseJSON(response);
-        	$("#result").html('Имя: '+result.name+' Возраст: '+result.age+' '+result.msg);
+        	$('#result').html('Имя: '+result.name+' Возраст: '+result.age+' '+result.msg);
         },
         //Нет ответа от обработчика
     	error: function(response) {
-            $("#result").html('Ответ от сервера не был получен!');
+            $('#result').html('Ответ от сервера не был получен!');
     	}
  	});
 }
