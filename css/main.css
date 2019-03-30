@@ -1,0 +1,104 @@
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+header {
+    background-color:#f1f1f1;
+    padding: 20px 40px 20px 40px;
+    display: block;
+}
+
+.welcome h1 {
+    font-size: 36px;
+    color: rgb(131, 131, 131);
+    font-weight: 400;
+}
+
+.welcome span {
+    font-size: 36px;
+    color:#fc9633;
+}
+
+.welcome {
+    border-bottom: 1px solid  rgb(131, 131, 131);
+}
+
+nav {
+    margin-top: 20px;
+}
+
+.topnav a {
+    color: rgb(131, 131, 131);
+    text-align: center;
+    padding: 12px 12px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.topnav a:hover {
+    border-bottom: 3px solid #fc9633;
+}
+
+.form {
+    background-color:#f0eef0;
+    width: 320px;
+    color:#fc9633;
+    padding: 20px;
+    margin: 30px auto;
+    font-size: 18px;
+}
+
+input {
+    width: 220px;
+}
+
+select {
+    width: 220px;
+}
+
+.message {
+    background-color:#f0eef0;
+    color: rgb(131, 131, 131);
+    width: 100%;
+    text-align: center;
+    margin: 30px auto;
+    font-size: 22px;
+    font-weight: 400; 
+}
+
+.msg_text {
+    padding: 20px;
+}
+
+.user_sheet {
+    color: rgb(131, 131, 131);
+    margin: 30px auto;
+    width: 100%;
+    text-align: center;
+    background-color:#f0eef0;
+}
+
+.user_sheet td {
+    border: 1px solid rgb(141, 141, 141);
+    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+}
+
+.user_sheet th {
+    color:#fc9633;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 20px;
+}
+
+.notice {
+    font-size: 14px;
+    color: rgb(141, 141, 141); 
+}

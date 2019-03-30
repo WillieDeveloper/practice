@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="text/javascript" src="../script/jquery 3-3-1.js"></script>
+    <script type="text/javascript" src="../script/ajax.js"></script>
+</head>
+<body class="wrapper">
+    <header>
+        <div class="welcome">
+            <h1><span>{{header}}</span></h1>
+        </div>
+        <nav>
+            <div class="topnav">
+                <a href="main">Главная</a>
+                <a href="form">Добавить пользователя</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <form method="POST" action="javascript:void(0);" onsubmit="sendAjaxForm()" id="form_ajax">
+                <table class="form">
+                    <tr>
+                        <td>Имя: </td>
+                        <td><input name="user_name" type="text" value="{{name}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Возраст: </td>
+                        <td><input name="user_age" type="text" value="{{age}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Город: </td>
+                        <td>
+                            <select name="user_city" type="text">
+                                {% for data in data %}
+                                    <option value="{{data.0}}">{{data.1}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input id="add_user_btn" name="add_user_btn" type="submit" value="Добавить"></td>
+                    </tr>
+                </table> 
+            </form>
+            <div class="message">
+                <p class="msg_text" id="result"></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="wrapper">
+    <header>
+        <div class="welcome">
+            <h1><span>{{header}}</span></h1>
+        </div>
+        <nav>
+            <div class="topnav">
+                <a href="main">Главная</a>
+                <a href="form">Добавить пользователя</a>
+                <a id="createDB" href="create">Создать БД</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <table class="user_sheet">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Возраст</th>
+                        <th>Город</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in data %}
+                        <tr><td>{{data.0}}</td><td>{{data.1}}</td><td>{{data.2}}</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
