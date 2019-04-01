@@ -51,16 +51,16 @@
         }
 
         //Разбиваем содержимое и помещаем в массив
-        $citiesArray = explode ('\\n', $fileContent);
+        $citiesArray = explode ("\n", $fileContent);
         
         //Формируем запрос к БД
-        $insertCitiesQuery = 'INSERT INTO cities (id_city, name_city) VALUE ';
+        $insertCitiesQuery = "INSERT INTO cities (id_city, name_city) VALUE ";
 
         for ($i = 0; $i < count ($citiesArray); $i++) {
-            $insertCitiesQuery = $insertCitiesQuery.'(NULL, ' . $citiesArray[$i] . '), ';   
+            $insertCitiesQuery = $insertCitiesQuery. "(NULL, '$citiesArray[$i]'), ";   
             
             if ($i == (count ($citiesArray) - 1) ) {
-                $insertCitiesQuery = $insertCitiesQuery. '(NULL, ' . $citiesArray[$i] . ')'; 
+                $insertCitiesQuery = $insertCitiesQuery. "(NULL, '$citiesArray[$i]')"; 
             }
         }
 
