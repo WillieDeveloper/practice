@@ -4,14 +4,14 @@
             //Пробуем обратиться к функции создания таблиц и смотрим результат
             $result = $this->model->createTables ();
             if (!$result) {
-                $this->data = 'Ошибка при создании БД! ';
+                $this->data = _('Ошибка при создании БД! ');
             }
             else {
-                $this->data = 'БД успешно создана! ';
+                $this->data = _('БД успешно создана! ');
             }
             //$this->createPage ('view_msg_page_template.html');
             //Отрисовываем сообщение
-            $this->generatePageViaTwig ('SysMsg', 'Системное сообщение', 'Msg');
+            $this->generatePageViaTwig ('SysMsg', _('Системное сообщение'), 'Msg');
         }
     }
 ?>

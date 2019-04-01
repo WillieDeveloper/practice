@@ -6,7 +6,7 @@
             //Получаем список городов
             $this->data = $this->model->getCities ();
             //$this->createPage ('view_form_template.html');
-            $this->generatePageViaTwig ('AddUser', 'Добавление пользователя', 'Form');
+            $this->generatePageViaTwig ('AddUser', _('Добавление пользователя'), 'Form');
         }
     }
 ?>
