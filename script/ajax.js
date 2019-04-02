@@ -10,11 +10,11 @@ function add() {
 */
 function sendAjaxForm () {
     var error = 0;
-    var regExp = /[0-9]+/;
+    var regExpNumber = /[0-9]+/;
     var userName = $('#user_name').val ();
 
     //Проверяем поле ввода имени на пустоту           
-    if( (!userName) || (regExp.test (userName)) ) {// если поле пустое
+    if( (!userName) || (regExpNumber.test (userName)) ) {// если поле пустое
         $('#user_name').css ('border', 'red 1px solid');// устанавливаем рамку красного цвета
         error = 1;// определяем индекс ошибки
         $('#result').html ('Введённое имя содержит недопустимые символы!');                                             
@@ -22,11 +22,13 @@ function sendAjaxForm () {
         $('#user_name').css ('border', 'green 1px solid');// устанавливаем рамку зелёного цвета
     }
 
+    var regExpLetter = /[a-zA-Zа-яА-Я]+/;
+    var userAge = $('#user_age').val ();
     //Проверяем поле ввода возраста на пустоту
-    if(!$('#user_age').val ()) {// если поле пустое
+    if( (!userAge) || (regExpLetter.test (userAge)) ) {// если поле пустое
         $('#user_age').css ('border', 'red 1px solid');// устанавливаем рамку красного цвета
         error = 2;// определяем индекс ошибки
-        $('#result').html ('Введите возраст!');      
+        $('#result').html ('Введённый возраст содержит недопустимые символы!');      
                                                
     } else {
         $('#user_age').css ('border', 'green 1px solid');// устанавливаем рамку зелёного цвета
