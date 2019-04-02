@@ -8,10 +8,10 @@
             //Подключаем базовую модель, обнуляем данные
             require_once SITE_PATH . '/application/core/model.php';   
             $this->data = NULL;
-            //Поключаем нужную модель, создаем её объект
+            //Поключаем нужную модель
             $modelName = $fileName . 'Model';
 
-            // подцепляем файл с классом контроллера
+            // подцепляем файл с классом модели
 			$modelPath = SITE_PATH . '/application/models/' . $modelName . '.php';
 			if (file_exists ($modelPath) ) {
 				require_once $modelPath;
