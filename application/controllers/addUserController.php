@@ -16,14 +16,14 @@
             }
 
             //Отправляем ответ Ajax`у
-            $responseToAjax = array(
+            $responseToAjax = array (
                 'name' => $_POST['user_name'],
                 'age' => $_POST['user_age'],
                 'msg' => $this->data
             ); 
         
             // Переводим массив в JSON
-            echo json_encode($responseToAjax);
+            echo json_encode ($responseToAjax);
 
             //$this->createPage ('view_msg_page_template.html');
             //Отрисовываем сообщение

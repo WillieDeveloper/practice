@@ -43,12 +43,13 @@ function sendAjaxForm () {
             //Метод отправки
             type: 'POST',
             //Формат данных
-            dataType: 'html',
+            dataType: 'json',
             data: $('#form_ajax').serialize (),
             //Есть ответ от обработчика
             success: function (response) {
-                result = $.parseJSON (response);
-                $('#result').html ('Имя: '+result.name+' Возраст: '+result.age+' '+result.msg);
+                //result = $.parseJSON (response);
+                $('#result').html ('Имя: '+response['name']
+                    +' Возраст: '+response['age']+' '+response['msg']);
             },
             //Нет ответа от обработчика
             error: function (response) {
