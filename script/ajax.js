@@ -1,42 +1,44 @@
 
-/*$("#add_user_btn").click(function(){
-	//sendAjaxForm();
-	$("#result").html('waiting...');
+$(function() {
+    $('#formAjax input[type = "submit"]').click(function(e){
+        // Отменяем стандартное поведение браузера
+        e.preventDefault();
+ 
+        var error = 0;
+        var regExpNumber = /[0-9]+/;
+        var regExpSymbol = /[~`!@#$%^&*><}{)(_;:"'/=?.+,-]+/;
+        var userName = $('#user_name').val ();
+    
+        //Проверяем поле ввода имени на пустоту           
+        if( (!userName) || (regExpNumber.test (userName)) || (regExpSymbol.test (userName)) ) {// если поле пустое
+            $('#user_name').css ('border', 'red 1px solid');// устанавливаем рамку красного цвета
+            error = 1;// определяем индекс ошибки
+            $('#result').html ('Введённое имя содержит недопустимые символы!');                                             
+        } else {
+            $('#user_name').css ('border', 'green 1px solid');// устанавливаем рамку зелёного цвета
+        }
+    
+        var regExpLetter = /[a-zA-Zа-яА-Я]+/;
+        var userAge = $('#user_age').val ();
+        //Проверяем поле ввода возраста на пустоту
+        if( (!userAge) || (regExpLetter.test (userAge)) || (regExpSymbol.test (userAge)) ) {// если поле пустое
+            $('#user_age').css ('border', 'red 1px solid');// устанавливаем рамку красного цвета
+            error = 2;// определяем индекс ошибки
+            $('#result').html ('Введённый возраст содержит недопустимые символы!');      
+                                                   
+        } else {
+            $('#user_age').css ('border', 'green 1px solid');// устанавливаем рамку зелёного цвета
+        }
+
+        //Если не было ошибок, задействуем AJAX
+        if (!error) {
+            sendAjaxForm();
+        }
+    });
 });
 
-function add() {
-    alert ('Yo');
-}
-*/
+
 function sendAjaxForm () {
-    var error = 0;
-    var regExpNumber = /[0-9]+/;
-    var regExpSymbol = /[~`!@#$%^&*><}{)(_;:"'/=?.+,-]+/;
-    var userName = $('#user_name').val ();
-
-    //Проверяем поле ввода имени на пустоту           
-    if( (!userName) || (regExpNumber.test (userName)) || (regExpSymbol.test (userName)) ) {// если поле пустое
-        $('#user_name').css ('border', 'red 1px solid');// устанавливаем рамку красного цвета
-        error = 1;// определяем индекс ошибки
-        $('#result').html ('Введённое имя содержит недопустимые символы!');                                             
-    } else {
-        $('#user_name').css ('border', 'green 1px solid');// устанавливаем рамку зелёного цвета
-    }
-
-    var regExpLetter = /[a-zA-Zа-яА-Я]+/;
-    var userAge = $('#user_age').val ();
-    //Проверяем поле ввода возраста на пустоту
-    if( (!userAge) || (regExpLetter.test (userAge)) || (regExpSymbol.test (userAge)) ) {// если поле пустое
-        $('#user_age').css ('border', 'red 1px solid');// устанавливаем рамку красного цвета
-        error = 2;// определяем индекс ошибки
-        $('#result').html ('Введённый возраст содержит недопустимые символы!');      
-                                               
-    } else {
-        $('#user_age').css ('border', 'green 1px solid');// устанавливаем рамку зелёного цвета
-    }
-
-    //Если не было ошибок, задействуем AJAX
-    if (!error) {
         $.ajax ({
             // Имя обработчика
             url: 'addUser',
@@ -44,7 +46,7 @@ function sendAjaxForm () {
             type: 'POST',
             //Формат данных
             dataType: 'json',
-            data: $('#form_ajax').serialize (),
+            data: $('#formAjax').serialize (),
             //Есть ответ от обработчика
             success: function (response) {
                 //result = $.parseJSON (response);
@@ -55,8 +57,7 @@ function sendAjaxForm () {
             error: function (response) {
                 $('#result').html ('Ответ от сервера не был получен!');
             }
-         });
-    }         
+         });         
 }
 /*
 function ajax() {
